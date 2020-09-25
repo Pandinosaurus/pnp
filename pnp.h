@@ -7,7 +7,8 @@
  *
  * \brief    This header contains the simplest perspective n point solver I can make.
  *
- * Ideally the user should supply the size of the image, the linear intrinsics, as well as the other parameters in the PnpParams dict.
+ * Ideally the user should supply the size of the image,
+ * the linear intrinsics, as well as the other parameters in the PnpParams dict.
  *
  *
  * \remark
@@ -28,6 +29,40 @@
 namespace cvl{
 
 /**
+ * @brief pnp_ransac
+ * @param xs 3d points in world
+ * @param yns pinhole camera coordinates
+ * @param params
+ * @return the pose Pcw
+ *
+ * This is the function you want
+ *
+ */
+PoseD pnp_ransac(const std::vector<cvl::Vector3d>& xs,
+                 const std::vector<cvl::Vector2d>& yns,
+                 PnpParams params=PnpParams());
+
+/**
+ * @brief pnp
+ * @param xs 3d points
+ * @param yns pinhole camera coordinates
+ * @param init
+ * @param check_inliers
+ * @return the pose
+ */
+PoseD pnp(const std::vector<cvl::Vector3d>& xs,
+          const std::vector<cvl::Vector2d>& yns,
+          const PoseD& init,
+          bool check_inliers=true);
+
+
+
+
+
+
+
+
+/**
  * @brief The PNPParams class
  * common PNP ransac parameters
  */
@@ -42,12 +77,8 @@ public:
      * @param cols the number of image cols
      */
     PnpParams(cvl::Matrix<double,3,3> K,
-              double pixel_threshold, int rows, int cols){
-        this->K=K;
-        threshold=pixel_threshold/K(0,0);
-        this->rows=rows;
-        this->cols=cols;
-    }
+              double pixel_threshold, int rows, int cols):
+        K(K),pixel_threshold(pixel_threshold/K(0,0)),rows(rows),cols(cols) {}
     // general useful stuff
     /// image rows
     int rows;
@@ -81,12 +112,9 @@ public:
 };
 
 
-PoseD pnp_ransac(const std::vector<cvl::Vector3d>& xs,
-                 const std::vector<cvl::Vector2d>& yns,
-                 PnpParams params=PnpParams());
 
 
-PoseD pnp(const std::vector<cvl::Vector3d>& xs, const std::vector<cvl::Vector2d>& yns, const PoseD& init, bool check_inliers=true);
+
 
 
 

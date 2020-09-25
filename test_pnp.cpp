@@ -1,21 +1,3 @@
-/* ********************************* FILE ************************************/
-/** \file    test_pnp.cpp
- *
- * \brief    This file contains a basic benchmark for pnp solutions.
- *
- * \remark
- * - c++11
- *
- *
- *
- *
- * \author   Mikael Persson
- * \date     2015-04-01
- * \note GPL licence
- *
- ******************************************************************************/
-
-
 #include <iostream>
 #include <utils/mlibtime.h>
 #include <pnp_ransac.h>
