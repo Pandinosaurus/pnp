@@ -18,7 +18,7 @@
  * \note MIT licence
  *
  ******************************************************************************/
-#include <set>
+
 #include <vector>
 #include "utils/cvl/pose.h"
 

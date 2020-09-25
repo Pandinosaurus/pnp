@@ -1,3 +1,22 @@
+/* ********************************* FILE ************************************/
+/** \file    pnp_ransac.cpp
+ *
+ * \brief    This file contains a basic benchmark for pnp solutions. For the function see pnp_ransac
+ *
+ * \remark
+ * - c++11
+ *
+ *
+ *
+ *
+ * \author   Mikael Persson
+ * \date     2015-04-01
+ * \note GPL licence
+ *
+ ******************************************************************************/
+
+
+
 #include <iostream>
 #include <ceres/ceres.h>
 

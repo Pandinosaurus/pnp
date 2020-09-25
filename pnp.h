@@ -28,32 +28,6 @@
 
 namespace cvl{
 
-/**
- * @brief pnp_ransac
- * @param xs 3d points in world
- * @param yns pinhole camera coordinates
- * @param params
- * @return the pose Pcw
- *
- * This is the function you want
- *
- */
-PoseD pnp_ransac(const std::vector<cvl::Vector3d>& xs,
-                 const std::vector<cvl::Vector2d>& yns,
-                 PnpParams params=PnpParams());
-
-/**
- * @brief pnp
- * @param xs 3d points
- * @param yns pinhole camera coordinates
- * @param init
- * @param check_inliers
- * @return the pose
- */
-PoseD pnp(const std::vector<cvl::Vector3d>& xs,
-          const std::vector<cvl::Vector2d>& yns,
-          const PoseD& init,
-          bool check_inliers=true);
 
 
 
@@ -65,6 +39,7 @@ PoseD pnp(const std::vector<cvl::Vector3d>& xs,
 /**
  * @brief The PNPParams class
  * common PNP ransac parameters
+ * the pnp below this class is what you want..
  */
 class PnpParams {
 public:
@@ -113,6 +88,32 @@ public:
 
 
 
+/**
+ * @brief pnp_ransac
+ * @param xs 3d points in world
+ * @param yns pinhole camera coordinates
+ * @param params
+ * @return the pose Pcw
+ *
+ * This is the function you want
+ *
+ */
+PoseD pnp_ransac(const std::vector<cvl::Vector3d>& xs,
+                 const std::vector<cvl::Vector2d>& yns,
+                 PnpParams params=PnpParams());
+
+/**
+ * @brief pnp
+ * @param xs 3d points
+ * @param yns pinhole camera coordinates
+ * @param init
+ * @param check_inliers
+ * @return the pose
+ */
+PoseD pnp(const std::vector<cvl::Vector3d>& xs,
+          const std::vector<cvl::Vector2d>& yns,
+          const PoseD& init,
+          bool check_inliers=true);
 
 
 
